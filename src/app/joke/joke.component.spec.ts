@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JokeComponent } from './joke.component';
+import { 
+  MdButtonModule, 
+  MdCardModule, 
+  MdInputModule } from '@angular/material';
+  
+import { Joke, JokeComponent } from './joke.component';
 
 describe('JokeComponent', () => {
   let component: JokeComponent;
@@ -21,5 +26,12 @@ describe('JokeComponent', () => {
 
   it('should be created', () => {
     expect(component).toBeTruthy();
+  });
+});
+
+describe('Joke', () => {
+  it('assigns joke, punchline and hide', () => {
+    let j = new Joke("joke", "punchline", true);
+    expect(j.joke).toBe("joke");
   });
 });

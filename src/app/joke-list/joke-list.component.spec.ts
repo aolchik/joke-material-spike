@@ -1,5 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { MdButtonModule, MdCardModule, MdInputModule } from '@angular/material';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { FlexLayoutModule } from "@angular/flex-layout";
+
+import { Joke, JokeComponent } from '../joke/joke.component'
+import { JokeFormComponent } from '../joke-form/joke-form.component'
+
 import { JokeListComponent } from './joke-list.component';
 
 describe('JokeListComponent', () => {
@@ -8,7 +17,19 @@ describe('JokeListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ JokeListComponent ]
+      declarations: [
+        Joke,
+        JokeFormComponent,
+        JokeListComponent 
+      ],
+      imports: [
+        BrowserAnimationsModule,
+        BrowserModule,
+        FlexLayoutModule,
+        MdButtonModule,
+        MdCardModule,
+        MdInputModule
+      ]
     })
     .compileComponents();
   }));
@@ -19,7 +40,7 @@ describe('JokeListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should be created', () => {
+  it('is created', () => {
     expect(component).toBeTruthy();
   });
 });
