@@ -13,7 +13,11 @@ describe('JokeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ JokeComponent ]
+      declarations: [ JokeComponent ],
+      imports: [
+        MdCardModule
+      ],
+
     })
     .compileComponents();
   }));

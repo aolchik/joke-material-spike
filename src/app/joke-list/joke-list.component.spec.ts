@@ -18,7 +18,7 @@ describe('JokeListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        Joke,
+        JokeComponent,
         JokeFormComponent,
         JokeListComponent 
       ],
