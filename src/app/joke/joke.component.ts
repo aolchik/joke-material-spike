@@ -1,12 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 export class Joke {
-  joke: string;
-  punchline: string;
-  hide: boolean;
-
-  constructor(joke: string, punchline: string, hide: boolean) {
-    this.joke = joke;
+  constructor(public joke: string, public punchline: string, public hide: boolean) {
   } 
 }
 
@@ -16,6 +11,8 @@ export class Joke {
   styleUrls: ['./joke.component.css']
 })
 export class JokeComponent implements OnInit {
+  @Input('joke') joke: Joke;
+
   constructor() { }
 
   ngOnInit() {

@@ -8,6 +8,8 @@ import { Joke, JokeComponent } from '../joke/joke.component'
   styleUrls: ['./joke-list.component.css']
 })
 export class JokeListComponent implements OnInit {
+  joke : Joke = new Joke('joke','punchline',true);
+
   constructor() { }
 
   ngOnInit() {
