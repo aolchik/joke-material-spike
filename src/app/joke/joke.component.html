@@ -1,10 +1,10 @@
 <md-card>
   <md-card-content>
     <h2>{{joke.joke}}</h2>
-    <p class="punchline" hidden=true>{{joke.punchline}}</p>
+    <p [hidden]="joke.hide" class="punchline" hidden=true>{{joke.punchline}}</p>
   </md-card-content>
   <md-card-actions layout="row" layout-align="end center">
-    <button md-button (click)="joke.toggle_punchline()">Diga me</button>
+    <button class="tellme" md-button (click)="joke.togglePunchline()">Diga me</button>
     <button md-button>Remover</button>
   </md-card-actions>
 </md-card>

@@ -13,6 +13,7 @@ describe('JokeComponent', () => {
   let component: JokeComponent;
   let fixture: ComponentFixture<TestComponentWrapper>;
   let compiled: any;
+  let punchline: any;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -32,6 +33,7 @@ describe('JokeComponent', () => {
     component = fixture.debugElement.children[0].componentInstance;
     fixture.detectChanges();
     compiled = fixture.debugElement.nativeElement;
+    punchline = compiled.querySelector('.punchline');
   });
 
   describe('construtor', () => {
@@ -43,25 +45,45 @@ describe('JokeComponent', () => {
       expect(compiled.querySelector('h2').textContent).toBe("piada");
     });
 
-    it('mostra punchline', () => {
-      expect(compiled.querySelector('.punchline').textContent).toBe("remate");
+    it('esconde punchline', () => {
+      expect(punchline.textContent).toBe("remate");
+      expect(punchline.getAttribute('hidden')).not.toBe(null);
     });
   });
 
   describe('botão diga-me', () => {
     it('esconde e mostra remate', () => {
-       pending();
+      pending();
+      let tellMeButton = fixture.debugElement.nativeElement.querySelector('.tellme');
+      tellMeButton.click();
+      console.log(punchline);
+      expect(punchline.getAttribute('hidden')).toBe(null);
     });
   });
 });
 
 describe('Joke', () => {
+  let j: Joke;
+
+  beforeEach(() => {
+      j = new Joke("joke", "punchline", true);
+  });
+
   describe('construtor', () => {
     it('atribui piada, remate and visualização padrão', () => {
-      let j = new Joke("joke", "punchline", true);
       expect(j.joke).toBe("joke");
       expect(j.punchline).toBe("punchline");
       expect(j.hide).toBe(true);
+    });
+  });
+
+  describe('togglePunchline', () => {
+    it('inverte visualização', () => {
+      j.togglePunchline();
+      expect(j.hide).toBe(false);
+
+      j.togglePunchline();
+      expect(j.hide).toBe(true);      
     });
   });
 });
