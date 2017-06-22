@@ -53,10 +53,9 @@ describe('JokeComponent', () => {
 
   describe('botão diga-me', () => {
     it('esconde e mostra remate', () => {
-      pending();
       let tellMeButton = fixture.debugElement.nativeElement.querySelector('.tellme');
       tellMeButton.click();
-      console.log(punchline);
+      fixture.detectChanges();
       expect(punchline.getAttribute('hidden')).toBe(null);
     });
   });
