@@ -14,6 +14,7 @@ import { JokeListComponent } from './joke-list.component';
 describe('JokeListComponent', () => {
   let component: JokeListComponent;
   let fixture: ComponentFixture<JokeListComponent>;
+  let compiled: any;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -38,9 +39,18 @@ describe('JokeListComponent', () => {
     fixture = TestBed.createComponent(JokeListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    compiled = fixture.debugElement.nativeElement;
   });
 
-  it('is created', () => {
+  it('cria componente', () => {
     expect(component).toBeTruthy();
   });
+
+  it('renderiza joke-form', () => {
+    expect(compiled.querySelector('joke-form').textContent).not.toBe(null);
+  });
+
+  it('renderiza algumas piadas iniciais', () => {
+    expect(compiled.querySelectorAll('joke').length).toBeGreaterThan(1);
+  });  
 });

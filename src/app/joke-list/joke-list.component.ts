@@ -8,11 +8,17 @@ import { Joke, JokeComponent } from '../joke/joke.component'
   styleUrls: ['./joke-list.component.css']
 })
 export class JokeListComponent implements OnInit {
-  joke : Joke = new Joke('joke','punchline',true);
+  jokes : Joke[];
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    this.jokes = [
+      new Joke(
+        'O que fala o livro de Matemática para o livro de História?',
+        'Não me venha com história que eu já estou cheio de problema!',
+        true),
+      new Joke('Qual o cachorro que é professor?','O cãolecionador.',true)
+    ];
   }
 
+  ngOnInit() { }
 }

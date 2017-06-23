@@ -59,6 +59,12 @@ describe('JokeComponent', () => {
       expect(punchline.getAttribute('hidden')).toBe(null);
     });
   });
+
+  describe('botão remover', () => {
+    it('remove piada', () => {
+      pending();
+    });
+  });
 });
 
 describe('Joke', () => {

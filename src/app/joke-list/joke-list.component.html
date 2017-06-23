@@ -1,6 +1,6 @@
 <div class="container">
 <joke-form>
 </joke-form>
-<joke [joke]="joke">
+<joke *ngFor="let joke of jokes" [joke]="joke">
 </joke>
 </div>

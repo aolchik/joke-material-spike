@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 
 import { MdButtonModule, MdCardModule, MdInputModule } from '@angular/material';
 
@@ -12,6 +12,9 @@ import { JokeFormComponent } from './joke-form/joke-form.component'
 import { JokeListComponent } from './joke-list/joke-list.component'
 
 describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>;
+  let app: AppComponent;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -31,21 +34,20 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-  it('creates the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    app = fixture.debugElement.componentInstance;
+  });
+
+  it('cria aplicativo', async(() => {
     expect(app).toBeTruthy();
   }));
 
-  it(`title is 'app'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
+  it(`título é 'app'`, async(() => {
     expect(app.title).toEqual('app');
   }));
 
-  it('renders joke-list', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
+  it('renderiza joke-list', async(() => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('joke-list').textContent).not.toBe(null);
   }));

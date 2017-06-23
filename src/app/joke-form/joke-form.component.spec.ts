@@ -39,7 +39,12 @@ describe('JokeFormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('is created', () => {
+  it('cria formulário', () => {
     expect(component).toBeTruthy();
   });
+
+  it('adiciona piada', () => {
+    pending();
+  });
+
 });
