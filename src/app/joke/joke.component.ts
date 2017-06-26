@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 export class Joke {
   constructor(public joke: string, public punchline: string, public hide: boolean) { }
@@ -14,11 +14,15 @@ export class Joke {
   styleUrls: ['./joke.component.css']
 })
 export class JokeComponent implements OnInit {
-  @Input('joke') joke: Joke;
+  @Input() joke: Joke;
+  @Output() onDelete = new EventEmitter<Joke>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  delete() {
+    this.onDelete.emit(this.joke);
+  }
 }

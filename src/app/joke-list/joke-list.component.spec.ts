@@ -52,5 +52,15 @@ describe('JokeListComponent', () => {
 
   it('renderiza algumas piadas iniciais', () => {
     expect(compiled.querySelectorAll('joke').length).toBeGreaterThan(1);
-  });  
+  });
+
+  describe('delete', () => {
+    it('remove piada', () => {
+      let joke : Joke = component.jokes[1];
+      let size : number = component.jokes.length;
+      component.delete(joke);
+      expect(component.jokes.length).toBe(size - 1);
+      expect(component.jokes.indexOf(joke)).toBe(0);
+    });
+  });
 });

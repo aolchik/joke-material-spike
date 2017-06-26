@@ -63,6 +63,9 @@ describe('JokeComponent', () => {
   describe('botão remover', () => {
     it('remove piada', () => {
       pending();
+      let deleteButton = fixture.debugElement.nativeElement.querySelector('.delete');
+      deleteButton.click();
+      fixture.detectChanges();
     });
   });
 });

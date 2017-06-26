@@ -20,5 +20,10 @@ export class JokeListComponent implements OnInit {
     ];
   }
 
+  delete(joke) {
+    let index : number = this.jokes.indexOf(joke);
+    this.jokes.splice(index-1,1);
+  }
+
   ngOnInit() { }
 }
