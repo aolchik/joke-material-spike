@@ -54,6 +54,10 @@ describe('JokeListComponent', () => {
     expect(compiled.querySelectorAll('joke').length).toBeGreaterThan(1);
   });
 
+  it('suporta a remoção de piadas', () => {
+    pending();
+  });
+
   describe('delete', () => {
     it('remove piada', () => {
       let joke : Joke = component.jokes[1];
@@ -61,6 +65,10 @@ describe('JokeListComponent', () => {
       component.delete(joke);
       expect(component.jokes.length).toBe(size - 1);
       expect(component.jokes.indexOf(joke)).toBe(0);
+    });
+
+    it('gera exceção se não for uma piada válida', () => {
+      pending();
     });
   });
 });

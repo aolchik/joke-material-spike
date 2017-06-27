@@ -62,10 +62,11 @@ describe('JokeComponent', () => {
 
   describe('botão remover', () => {
     it('remove piada', () => {
-      pending();
       let deleteButton = fixture.debugElement.nativeElement.querySelector('.delete');
+      spyOn(component.onDelete, 'emit');
       deleteButton.click();
       fixture.detectChanges();
+      expect(component.onDelete.emit).toHaveBeenCalled();
     });
   });
 });
@@ -101,5 +102,7 @@ describe('Joke', () => {
   template: '<joke [joke]="joke"></joke>'
 })
 class TestComponentWrapper {
-  joke = new Joke("piada", "remate", true)
+  joke = new Joke("piada", "remate", true);
+
+  delete () {};
 }

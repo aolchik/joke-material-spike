@@ -1,6 +1,6 @@
 <div class="container">
 <joke-form>
 </joke-form>
-<joke *ngFor="let joke of jokes" [joke]="joke">
+<joke *ngFor="let joke of jokes" [joke]="joke" (onDelete)="delete(joke)">
 </joke>
 </div>
