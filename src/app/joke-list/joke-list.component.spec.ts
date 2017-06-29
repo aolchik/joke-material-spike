@@ -64,11 +64,12 @@ describe('JokeListComponent', () => {
       let size : number = component.jokes.length;
       component.delete(joke);
       expect(component.jokes.length).toBe(size - 1);
-      expect(component.jokes.indexOf(joke)).toBe(0);
+      expect(component.jokes.indexOf(joke)).toBe(-1);
     });
 
     it('gera exceção se não for uma piada válida', () => {
-      pending();
+      let joke : Joke = new Joke('inexistent joke','',true);
+      expect( () => { component.delete(joke); } ).toThrow();
     });
   });
 });

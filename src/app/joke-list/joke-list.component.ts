@@ -22,7 +22,8 @@ export class JokeListComponent implements OnInit {
 
   delete(joke) {
     let index : number = this.jokes.indexOf(joke);
-    this.jokes.splice(index-1,1);
+    if(index < 0) { throw new Error("joke [" + joke.joke + "] does not exist"); }
+    this.jokes.splice(index,1);
   }
 
   ngOnInit() { }
