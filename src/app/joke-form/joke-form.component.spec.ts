@@ -12,7 +12,10 @@ import {
   MdCardModule, 
   MdInputModule } from '@angular/material';
 
+import { Joke } from '../joke/joke.component';
 import { JokeFormComponent } from './joke-form.component';
+
+import { clickButton } from '../../test_helper';
 
 describe('JokeFormComponent', () => {
   let component: JokeFormComponent;
@@ -43,8 +46,14 @@ describe('JokeFormComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('adiciona piada', () => {
+  it('dispara adição de piada', () => {
     pending();
+    let setup : string = 'setup';
+    let punchline : string = 'punchline';
+    let joke : Joke = new Joke(setup, punchline, true);
+    spyOn(component.onAdd,'emit');
+    clickButton(fixture, '.add');
+    expect(component.onAdd.emit).toHaveBeenCalledWith(joke);
   });
 
 });

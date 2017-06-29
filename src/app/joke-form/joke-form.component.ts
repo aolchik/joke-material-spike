@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
+import { Joke } from '../joke/joke.component'
 
 @Component({
   selector: 'joke-form',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./joke-form.component.css']
 })
 export class JokeFormComponent implements OnInit {
+  @Output() onAdd = new EventEmitter<Joke>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  addJoke() {
+    this.onAdd.emit();
   }
 
 }

@@ -20,11 +20,15 @@ export class JokeListComponent implements OnInit {
     ];
   }
 
+  ngOnInit() { }
+
+  add(joke) {
+    this.jokes.unshift(joke);
+  }
+
   delete(joke) {
     let index : number = this.jokes.indexOf(joke);
     if(index < 0) { throw new Error("joke [" + joke.joke + "] does not exist"); }
     this.jokes.splice(index,1);
   }
-
-  ngOnInit() { }
 }

@@ -11,6 +11,8 @@ import { JokeFormComponent } from '../joke-form/joke-form.component'
 
 import { JokeListComponent } from './joke-list.component';
 
+import { clickButton } from '../../test_helper';
+
 describe('JokeListComponent', () => {
   let component: JokeListComponent;
   let fixture: ComponentFixture<JokeListComponent>;
@@ -55,7 +57,9 @@ describe('JokeListComponent', () => {
   });
 
   it('suporta a remoção de piadas', () => {
-    pending();
+    spyOn(component,'delete');
+    clickButton(fixture, '.delete');
+    expect(component.delete).toHaveBeenCalled();
   });
 
   describe('delete', () => {
@@ -72,4 +76,17 @@ describe('JokeListComponent', () => {
       expect( () => { component.delete(joke); } ).toThrow();
     });
   });
+
+  describe('add', () => {
+    it('adiciona piada', () => {
+      let joke : Joke = new Joke('nova piada', 'remate', true);
+      let size : number = component.jokes.length;
+      expect(component.jokes.indexOf(joke)).toBe(-1);
+
+      component.add(joke);
+      expect(component.jokes.length).toBe(size + 1);
+      expect(component.jokes.indexOf(joke)).toBeGreaterThanOrEqual(0);
+    });
+  });
+
 });
