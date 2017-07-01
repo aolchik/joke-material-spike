@@ -4,15 +4,15 @@
   </md-card-title>
   <md-card-content id="container">
     <md-input-container>
-      <input mdInput placeholder="Piada" type="text">
+      <input mdInput class="joke" placeholder="Piada" type="text" #joke>
       <md-hint>O que um pinguim disse para o outro?</md-hint>
     </md-input-container>
     <md-input-container>
-    <input mdInput placeholder="Remate">
+    <input mdInput class="punchline" placeholder="Remate" #punchline>
     <md-hint>Doce de leite!</md-hint>
     </md-input-container>
   </md-card-content>
   <md-card-actions layout="row" layout-align="end center">
-    <button md-button class='add' (click)="addJoke()">Adicionar</button>
+    <button md-button class='add' (click)="addJoke(joke.value, punchline.value)">Adicionar</button>
   </md-card-actions>
 </md-card>

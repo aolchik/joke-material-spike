@@ -62,6 +62,12 @@ describe('JokeListComponent', () => {
     expect(component.delete).toHaveBeenCalled();
   });
 
+  it('suporta a adição de piadas', () => {
+    spyOn(component,'add');
+    clickButton(fixture, '.add');
+    expect(component.add).toHaveBeenCalledWith(new Joke());
+  });
+
   describe('delete', () => {
     it('remove piada', () => {
       let joke : Joke = component.jokes[1];

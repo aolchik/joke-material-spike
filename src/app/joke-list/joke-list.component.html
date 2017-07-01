@@ -1,5 +1,5 @@
 <div class="container">
-<joke-form>
+<joke-form (onAdd)="add($event)">
 </joke-form>
 <joke *ngFor="let joke of jokes" [joke]="joke" (onDelete)="delete(joke)">
 </joke>

@@ -15,7 +15,7 @@ import {
 import { Joke } from '../joke/joke.component';
 import { JokeFormComponent } from './joke-form.component';
 
-import { clickButton } from '../../test_helper';
+import { clickButton, fillInput } from '../../test_helper';
 
 describe('JokeFormComponent', () => {
   let component: JokeFormComponent;
@@ -47,11 +47,12 @@ describe('JokeFormComponent', () => {
   });
 
   it('dispara adição de piada', () => {
-    pending();
     let setup : string = 'setup';
     let punchline : string = 'punchline';
     let joke : Joke = new Joke(setup, punchline, true);
     spyOn(component.onAdd,'emit');
+    fillInput(fixture, '.joke', setup);
+    fillInput(fixture, '.punchline', punchline);
     clickButton(fixture, '.add');
     expect(component.onAdd.emit).toHaveBeenCalledWith(joke);
   });

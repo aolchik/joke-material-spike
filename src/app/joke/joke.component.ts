@@ -1,7 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 export class Joke {
-  constructor(public joke: string, public punchline: string, public hide: boolean) { }
+  constructor(
+    public joke: string = '',
+    public punchline: string = '',
+    public hide: boolean = true) { }
 
   togglePunchline() : void {
     this.hide = !this.hide;

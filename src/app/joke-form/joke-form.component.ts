@@ -15,8 +15,8 @@ export class JokeFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  addJoke() {
-    this.onAdd.emit();
+  addJoke(joke: string, punchline: string) {
+    this.onAdd.emit(new Joke(joke, punchline, true));
   }
 
 }
